@@ -40,44 +40,75 @@ console.log(vars.get("x"));
 - 基本文法
   - スペース区切りで次の引数へ
   - `<name|names>` だけは `,` 区切りで複数選択を許可
+  - `<integer|string>` は整数か文字列かで定数か変数かを判定する
+    - 実数は構文エラーとする
   - 1行にまとめても破綻しないようにするため `;` を末尾につける
 - コメントアウト: `# anything #`
-- 変数宣言: `let <name|names> <con|var> <number|string>;`
-  - 初期値に定数: `let <name|names> con <number>;`
-  - 初期値に変数: `let <name|names> var <string>;`
+- 変数宣言: `let <name|names> <integer|string>;`
+  - 初期値に定数: `let <name|names> <integer>;`
+  - 初期値に変数: `let <name|names> <string>;`
   - これを実行後、`<name|names>`を変数リストに格納
-- 変数の四則演算: `<name|names> <=|+=|-=|*=|/=|%=|+|-|*|/|%> <con|var> <number|string>;`
-  - 演算の連結: `x = con 1 > <=|+=|-=|*=|/=|%=|+|-|*|/|%> <con|var> <number|string>;`
+- 変数の四則演算: `<name|names> <=|+=|-=|*=|/=|%=|+|-|*|/|%> <integer|string>;`
+  - 演算の連結: `x = con 1 > <=|+=|-=|*=|/=|%=|+|-|*|/|%> <integer|string>;`
     - `>` をつけることで演算対象の変数を引き継いで連続演算が可能
     - HSPの `selvar` に関する工夫
 
 ### マトリクス演算
 ```coffee
 # args-1 #
-let x,y,z con 123;
+let x,y,z 123;
 
 # args-2 #
-let a,b,c,d,e,f,g,h,i,j,k,l con 0;
+let a,b,c,d,e,f,g,h,i,j,k,l 0;
 a,f,k = 1;
 
 # returns #
-let rx,ry,rz con 0;
+let rx,ry,rz 0;
 
 # temp #
-let t con 0;
+let t 0;
 
 # calc #
-t = var x > * var a; rx = var t;
-t = var y > * var b; rx + var t;
-t = var z > * var c; rx + var t > + var d;
+t = x > * a; rx = t;
+t = y > * b; rx + t;
+t = z > * c; rx + t > + d;
 
-t = var x > * var e; ry = var t;
-t = var y > * var f; ry + var t;
-t = var z > * var g; ry + var t > + var h;
+t = x > * e; ry = t;
+t = y > * f; ry + t;
+t = z > * g; ry + t > + h;
 
-t = var x > * var i; rz = var t;
-t = var y > * var j; rz + var t;
-t = var z > * var k; rz + var t > + var l;
+t = x > * i; rz = t;
+t = y > * j; rz + t;
+t = z > * k; rz + t > + l;
 
 # return -> rx,ry,rz #
+```
+### 変換
+```coffee
+let a,b,c,d,e,f,g,h,i,j,k,l 0;
+a,f,k = 1;
+a + 1 > * 4 > - k;
+```
+```coffee
+selvar 1 : var 1, 0, 0, 0 ;# a
+selvar 2 : var 2, 0, 0, 0 ;# b
+selvar 3 : var 3, 0, 0, 0 ;# c
+selvar 4 : var 4, 0, 0, 0 ;# d
+selvar 5 : var 5, 0, 0, 0 ;# e
+selvar 6 : var 6, 0, 0, 0 ;# f
+selvar 7 : var 7, 0, 0, 0 ;# g
+selvar 8 : var 8, 0, 0, 0 ;# h
+selvar 9 : var 9, 0, 0, 0 ;# i
+selvar 10 : var 10, 0, 0, 0 ;# j
+selvar 11 : var 11, 0, 0, 0 ;# k
+selvar 12 : var 12, 0, 0, 0 ;# l
+
+selvar 1 : var 1, 0, 0, 1 ;# a
+selvar 6 : var 6, 0, 0, 1 ;# f
+selvar 11 : var 11, 0, 0, 1 ;# k
+
+selvar 1 ;# a
+var 1, 1, 0, 1 ;# + 1
+var 1, 3, 0, 4 ;# * 4
+var 1, 2, 1, 11 ;# - k
 ```
