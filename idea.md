@@ -84,11 +84,19 @@ t = z > * k; rz + t > + l;
 # return -> rx,ry,rz #
 ```
 ### 変換
+#### スクリプト
 ```coffee
 let a,b,c,d,e,f,g,h,i,j,k,l 3;
 a,f,k = 1;
 a + 1 > * 4 > - k;
 ```
+#### 変数リスト
+```json
+{
+  "variables":["a","b","c","d","e","f","g","h","i","j","k","l"]
+}
+```
+#### コンパイル後
 ```coffee
 selvar 1 : var 0, 0, 3 ;# a
 selvar 2 : var 0, 0, 3 ;# b
