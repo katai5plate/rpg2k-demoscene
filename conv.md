@@ -67,31 +67,31 @@ t = z > * k; rz + t > + l;
 ```
 #### AFTER
 ```coffee
-selvar 1 : var 0, 0, 123 ;# x
-selvar 2 : var 0, 0, 123 ;# y
-selvar 3 : var 0, 0, 123 ;# z
-selvar 4 : var 0, 0, 0 ;# a
-selvar 5 : var 0, 0, 0 ;# b
-selvar 6 : var 0, 0, 0 ;# c
-selvar 7 : var 0, 0, 0 ;# d
-selvar 8 : var 0, 0, 0 ;# e
-selvar 9 : var 0, 0, 0 ;# f
-selvar 10 : var 0, 0, 0 ;# g
-selvar 11 : var 0, 0, 0 ;# h
-selvar 12 : var 0, 0, 0 ;# i
-selvar 13 : var 0, 0, 0 ;# j
-selvar 14 : var 0, 0, 0 ;# k
-selvar 15 : var 0, 0, 0 ;# l
+selvar 1 : var 0, 0, 123 ;# let x = 123
+selvar 2 : var 0, 0, 123 ;# let y = 123
+selvar 3 : var 0, 0, 123 ;# let z = 123
+selvar 4 : var 0, 0, 0 ;# let a = 0
+selvar 5 : var 0, 0, 0 ;# let b = 0
+selvar 6 : var 0, 0, 0 ;# let c = 0
+selvar 7 : var 0, 0, 0 ;# let d = 0
+selvar 8 : var 0, 0, 0 ;# let e = 0
+selvar 9 : var 0, 0, 0 ;# let f = 0
+selvar 10 : var 0, 0, 0 ;# let g = 0
+selvar 11 : var 0, 0, 0 ;# let h = 0
+selvar 12 : var 0, 0, 0 ;# let i = 0
+selvar 13 : var 0, 0, 0 ;# let j = 0
+selvar 14 : var 0, 0, 0 ;# let k = 0
+selvar 15 : var 0, 0, 0 ;# let l = 0
 selvar 4 ;# a
 var 0, 0, 1 ;# = 1
 selvar 9 ;# f
 var 0, 0, 1 ;# = 1
 selvar 14 ;# k
 var 0, 0, 1 ;# = 1
-selvar 16 : var 0, 0, 0 ;# rx
-selvar 17 : var 0, 0, 0 ;# ry
-selvar 18 : var 0, 0, 0 ;# rz
-selvar 19 : var 0, 0, 0 ;# t
+selvar 16 : var 0, 0, 0 ;# let rx = 0
+selvar 17 : var 0, 0, 0 ;# let ry = 0
+selvar 18 : var 0, 0, 0 ;# let rz = 0
+selvar 19 : var 0, 0, 0 ;# let t = 0
 selvar 19 ;# t
 var 0, 1, 1 ;# = x
 var 3, 1, 4 ;# * a
@@ -119,18 +119,18 @@ a + 1 > * 4 > - k;
 ```
 #### コンパイル後
 ```coffee
-selvar 1 : var 0, 0, 3 ;# a
-selvar 2 : var 0, 0, 3 ;# b
-selvar 3 : var 0, 0, 3 ;# c
-selvar 4 : var 0, 0, 3 ;# d
-selvar 5 : var 0, 0, 3 ;# e
-selvar 6 : var 0, 0, 3 ;# f
-selvar 7 : var 0, 0, 3 ;# g
-selvar 8 : var 0, 0, 3 ;# h
-selvar 9 : var 0, 0, 3 ;# i
-selvar 10 : var 0, 0, 3 ;# j
-selvar 11 : var 0, 0, 3 ;# k
-selvar 12 : var 0, 0, 3 ;# l
+selvar 1 : var 0, 0, 3 ;# let a = 3
+selvar 2 : var 0, 0, 3 ;# let b = 3
+selvar 3 : var 0, 0, 3 ;# let c = 3
+selvar 4 : var 0, 0, 3 ;# let d = 3
+selvar 5 : var 0, 0, 3 ;# let e = 3
+selvar 6 : var 0, 0, 3 ;# let f = 3
+selvar 7 : var 0, 0, 3 ;# let g = 3
+selvar 8 : var 0, 0, 3 ;# let h = 3
+selvar 9 : var 0, 0, 3 ;# let i = 3
+selvar 10 : var 0, 0, 3 ;# let j = 3
+selvar 11 : var 0, 0, 3 ;# let k = 3
+selvar 12 : var 0, 0, 3 ;# let l = 3
 
 selvar 1 ;# a
 var 0, 0, 1 ;# = 1
