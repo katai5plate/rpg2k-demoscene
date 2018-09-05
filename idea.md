@@ -46,11 +46,10 @@ console.log(vars.get("x"));
   - 初期値に定数: `let <name|names> con <number>;`
   - 初期値に変数: `let <name|names> var <string>;`
   - これを実行後、`<name|names>`を変数リストに格納
-- 変数の四則演算: `<name|names> <=|+|-=|*|/=|%=> <con|var> <number|string>;`
-  - 演算の連結: `x = con 1 > <=|+|-=|*|/=|%=> <con|var> <number|string>;`
+- 変数の四則演算: `<name|names> <=|+=|-=|*=|/=|%=|+|-|*|/|%> <con|var> <number|string>;`
+  - 演算の連結: `x = con 1 > <=|+=|-=|*=|/=|%=|+|-|*|/|%> <con|var> <number|string>;`
     - `>` をつけることで演算対象の変数を引き継いで連続演算が可能
     - HSPの `selvar` に関する工夫
-  - `+` を `+` と省略して使うこともできる
 
 ### マトリクス演算
 ```coffee
