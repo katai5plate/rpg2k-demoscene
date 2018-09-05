@@ -94,9 +94,12 @@ selvar 10 : var 0, 0, 3 ;# j
 selvar 11 : var 0, 0, 3 ;# k
 selvar 12 : var 0, 0, 3 ;# l
 
-selvar 1 : var 0, 0, 1 ;# a
-selvar 6 : var 0, 0, 1 ;# f
-selvar 11 : var 0, 0, 1 ;# k
+selvar 1 ;# a
+var 0, 0, 1 ;# = 1
+selvar 6 ;# f
+var 0, 0, 1 ;# = 1
+selvar 11 ;# k
+var 0, 0, 1 ;# = 1
 
 selvar 1 ;# a
 var 1, 0, 1 ;# + 1
