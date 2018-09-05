@@ -35,6 +35,7 @@
   - 変数IDの最小値設定: `convert <integer>`
 
 ### マトリクス演算
+#### BEFORE
 ```coffee
 # args-1 #
 let x,y,z 123;
@@ -63,6 +64,40 @@ t = y > * j; rz + t;
 t = z > * k; rz + t > + l;
 
 # return -> rx,ry,rz #
+```
+#### AFTER
+```coffee
+selvar 1 : var 0, 0, 123 ;# x
+selvar 2 : var 0, 0, 123 ;# y
+selvar 3 : var 0, 0, 123 ;# z
+selvar 4 : var 0, 0, 0 ;# a
+selvar 5 : var 0, 0, 0 ;# b
+selvar 6 : var 0, 0, 0 ;# c
+selvar 7 : var 0, 0, 0 ;# d
+selvar 8 : var 0, 0, 0 ;# e
+selvar 9 : var 0, 0, 0 ;# f
+selvar 10 : var 0, 0, 0 ;# g
+selvar 11 : var 0, 0, 0 ;# h
+selvar 12 : var 0, 0, 0 ;# i
+selvar 13 : var 0, 0, 0 ;# j
+selvar 14 : var 0, 0, 0 ;# k
+selvar 15 : var 0, 0, 0 ;# l
+selvar 4 ;# a
+var 0, 0, 1 ;# = 1
+selvar 9 ;# f
+var 0, 0, 1 ;# = 1
+selvar 14 ;# k
+var 0, 0, 1 ;# = 1
+selvar 16 : var 0, 0, 0 ;# rx
+selvar 17 : var 0, 0, 0 ;# ry
+selvar 18 : var 0, 0, 0 ;# rz
+selvar 19 : var 0, 0, 0 ;# t
+selvar 19 ;# t
+var 0, 1, 1 ;# = x
+var 3, 1, 4 ;# * a
+selvar 16 ;# rx
+var 0, 1, 19 ;# = t
+;# 以下略
 ```
 ### 変換
 #### スクリプト
@@ -109,6 +144,7 @@ var 1, 0, 1 ;# + 1
 var 3, 0, 4 ;# * 4
 var 2, 1, 11 ;# - k
 ```
+
 ### 構文解析
 - まず１行にする
   - 余分な空白文字(スペース・改行・タブ)を消す
