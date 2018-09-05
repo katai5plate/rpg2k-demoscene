@@ -30,7 +30,7 @@
   - 変数の四則演算: `<name|names> <=|+|-|*|/|%> <integer|string>;`
     - 演算の連結: `x = 1 > + 2 > - 3 > * 4 > / 5 > % 6;`
       - `>` をつけることで演算対象の変数を引き継いで連続演算が可能
-      - HSPの `selvar` に関する工夫
+      - HSPの `varsel` に関する工夫
 - 実行時オプション
   - 変数IDの最小値
   - 宣言時の代入値が `0` のとき記述を省略するか
@@ -68,35 +68,36 @@ t = z > * k; rz + t > + l;
 ```
 #### AFTER
 ```coffee
-selvar 1 : var 0, 0, 123 ;# let x = 123
-selvar 2 : var 0, 0, 123 ;# let y = 123
-selvar 3 : var 0, 0, 123 ;# let z = 123
-selvar 4 : var 0, 0, 0 ;# let a = 0
-selvar 5 : var 0, 0, 0 ;# let b = 0
-selvar 6 : var 0, 0, 0 ;# let c = 0
-selvar 7 : var 0, 0, 0 ;# let d = 0
-selvar 8 : var 0, 0, 0 ;# let e = 0
-selvar 9 : var 0, 0, 0 ;# let f = 0
-selvar 10 : var 0, 0, 0 ;# let g = 0
-selvar 11 : var 0, 0, 0 ;# let h = 0
-selvar 12 : var 0, 0, 0 ;# let i = 0
-selvar 13 : var 0, 0, 0 ;# let j = 0
-selvar 14 : var 0, 0, 0 ;# let k = 0
-selvar 15 : var 0, 0, 0 ;# let l = 0
-selvar 4 ;# a
+#include "rpgfunc.as"
+varsel 1 : var 0, 0, 123 ;# let x = 123
+varsel 2 : var 0, 0, 123 ;# let y = 123
+varsel 3 : var 0, 0, 123 ;# let z = 123
+varsel 4 : var 0, 0, 0 ;# let a = 0
+varsel 5 : var 0, 0, 0 ;# let b = 0
+varsel 6 : var 0, 0, 0 ;# let c = 0
+varsel 7 : var 0, 0, 0 ;# let d = 0
+varsel 8 : var 0, 0, 0 ;# let e = 0
+varsel 9 : var 0, 0, 0 ;# let f = 0
+varsel 10 : var 0, 0, 0 ;# let g = 0
+varsel 11 : var 0, 0, 0 ;# let h = 0
+varsel 12 : var 0, 0, 0 ;# let i = 0
+varsel 13 : var 0, 0, 0 ;# let j = 0
+varsel 14 : var 0, 0, 0 ;# let k = 0
+varsel 15 : var 0, 0, 0 ;# let l = 0
+varsel 4 ;# a
 var 0, 0, 1 ;# = 1
-selvar 9 ;# f
+varsel 9 ;# f
 var 0, 0, 1 ;# = 1
-selvar 14 ;# k
+varsel 14 ;# k
 var 0, 0, 1 ;# = 1
-selvar 16 : var 0, 0, 0 ;# let rx = 0
-selvar 17 : var 0, 0, 0 ;# let ry = 0
-selvar 18 : var 0, 0, 0 ;# let rz = 0
-selvar 19 : var 0, 0, 0 ;# let t = 0
-selvar 19 ;# t
+varsel 16 : var 0, 0, 0 ;# let rx = 0
+varsel 17 : var 0, 0, 0 ;# let ry = 0
+varsel 18 : var 0, 0, 0 ;# let rz = 0
+varsel 19 : var 0, 0, 0 ;# let t = 0
+varsel 19 ;# t
 var 0, 1, 1 ;# = x
 var 3, 1, 4 ;# * a
-selvar 16 ;# rx
+varsel 16 ;# rx
 var 0, 1, 19 ;# = t
 ;# 以下略
 ```
@@ -120,27 +121,28 @@ a + 1 > * 4 > - k;
 ```
 #### コンパイル後
 ```coffee
-selvar 1 : var 0, 0, 3 ;# let a = 3
-selvar 2 : var 0, 0, 3 ;# let b = 3
-selvar 3 : var 0, 0, 3 ;# let c = 3
-selvar 4 : var 0, 0, 3 ;# let d = 3
-selvar 5 : var 0, 0, 3 ;# let e = 3
-selvar 6 : var 0, 0, 3 ;# let f = 3
-selvar 7 : var 0, 0, 3 ;# let g = 3
-selvar 8 : var 0, 0, 3 ;# let h = 3
-selvar 9 : var 0, 0, 3 ;# let i = 3
-selvar 10 : var 0, 0, 3 ;# let j = 3
-selvar 11 : var 0, 0, 3 ;# let k = 3
-selvar 12 : var 0, 0, 3 ;# let l = 3
+#include "rpgfunc.as"
+varsel 1 : var 0, 0, 3 ;# let a = 3
+varsel 2 : var 0, 0, 3 ;# let b = 3
+varsel 3 : var 0, 0, 3 ;# let c = 3
+varsel 4 : var 0, 0, 3 ;# let d = 3
+varsel 5 : var 0, 0, 3 ;# let e = 3
+varsel 6 : var 0, 0, 3 ;# let f = 3
+varsel 7 : var 0, 0, 3 ;# let g = 3
+varsel 8 : var 0, 0, 3 ;# let h = 3
+varsel 9 : var 0, 0, 3 ;# let i = 3
+varsel 10 : var 0, 0, 3 ;# let j = 3
+varsel 11 : var 0, 0, 3 ;# let k = 3
+varsel 12 : var 0, 0, 3 ;# let l = 3
 
-selvar 1 ;# a
+varsel 1 ;# a
 var 0, 0, 1 ;# = 1
-selvar 6 ;# f
+varsel 6 ;# f
 var 0, 0, 1 ;# = 1
-selvar 11 ;# k
+varsel 11 ;# k
 var 0, 0, 1 ;# = 1
 
-selvar 1 ;# a
+varsel 1 ;# a
 var 1, 0, 1 ;# + 1
 var 3, 0, 4 ;# * 4
 var 2, 1, 11 ;# - k
