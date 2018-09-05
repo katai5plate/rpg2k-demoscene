@@ -85,30 +85,30 @@ t = z > * k; rz + t > + l;
 ```
 ### 変換
 ```coffee
-let a,b,c,d,e,f,g,h,i,j,k,l 0;
+let a,b,c,d,e,f,g,h,i,j,k,l 3;
 a,f,k = 1;
 a + 1 > * 4 > - k;
 ```
 ```coffee
-selvar 1 : var 1, 0, 0, 0 ;# a
-selvar 2 : var 2, 0, 0, 0 ;# b
-selvar 3 : var 3, 0, 0, 0 ;# c
-selvar 4 : var 4, 0, 0, 0 ;# d
-selvar 5 : var 5, 0, 0, 0 ;# e
-selvar 6 : var 6, 0, 0, 0 ;# f
-selvar 7 : var 7, 0, 0, 0 ;# g
-selvar 8 : var 8, 0, 0, 0 ;# h
-selvar 9 : var 9, 0, 0, 0 ;# i
-selvar 10 : var 10, 0, 0, 0 ;# j
-selvar 11 : var 11, 0, 0, 0 ;# k
-selvar 12 : var 12, 0, 0, 0 ;# l
+selvar 1 : var 0, 0, 3 ;# a
+selvar 2 : var 0, 0, 3 ;# b
+selvar 3 : var 0, 0, 3 ;# c
+selvar 4 : var 0, 0, 3 ;# d
+selvar 5 : var 0, 0, 3 ;# e
+selvar 6 : var 0, 0, 3 ;# f
+selvar 7 : var 0, 0, 3 ;# g
+selvar 8 : var 0, 0, 3 ;# h
+selvar 9 : var 0, 0, 3 ;# i
+selvar 10 : var 0, 0, 3 ;# j
+selvar 11 : var 0, 0, 3 ;# k
+selvar 12 : var 0, 0, 3 ;# l
 
 selvar 1 : var 1, 0, 0, 1 ;# a
 selvar 6 : var 6, 0, 0, 1 ;# f
 selvar 11 : var 11, 0, 0, 1 ;# k
 
 selvar 1 ;# a
-var 1, 1, 0, 1 ;# + 1
-var 1, 3, 0, 4 ;# * 4
-var 1, 2, 1, 11 ;# - k
+var 1, 0, 1 ;# + 1
+var 3, 0, 4 ;# * 4
+var 2, 1, 11 ;# - k
 ```
