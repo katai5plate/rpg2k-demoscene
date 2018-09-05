@@ -16,20 +16,23 @@
 
 ## 独自スクリプト言語
 - 基本文法
-  - スペース区切りで次の引数へ
-  - `<name|names>` だけは `,` 区切りで複数選択を許可
-  - `<integer|string>` は整数か文字列かで定数か変数かを判定する
-    - 実数は構文エラーとする
-  - 1行にまとめても破綻しないようにするため `;` を末尾につける
-- コメントアウト: `# anything #`
-- 変数宣言: `let <name|names> <integer|string>;`
-  - 初期値に定数: `let <name|names> <integer>;`
-  - 初期値に変数: `let <name|names> <string>;`
-  - これを実行後、`<name|names>`を変数リストに格納
-- 変数の四則演算: `<name|names> <=|+=|-=|*=|/=|%=|+|-|*|/|%> <integer|string>;`
-  - 演算の連結: `x = con 1 > <=|+=|-=|*=|/=|%=|+|-|*|/|%> <integer|string>;`
-    - `>` をつけることで演算対象の変数を引き継いで連続演算が可能
-    - HSPの `selvar` に関する工夫
+  - 構文
+    - スペース区切りで次の引数へ
+    - `<name|names>` だけは `,` 区切りで複数選択を許可
+    - `<integer|string>` は整数か文字列かで定数か変数かを判定する
+      - 実数は構文エラーとする
+    - 1行にまとめても破綻しないようにするため `;` を末尾につける
+  - コメントアウト: `# anything #`
+  - 変数宣言: `let <name|names> <integer|string>;`
+    - 初期値に定数: `let <name|names> <integer>;`
+    - 初期値に変数: `let <name|names> <string>;`
+    - これを実行後、`<name|names>`を変数リストに格納
+  - 変数の四則演算: `<name|names> <=|+=|-=|*=|/=|%=|+|-|*|/|%> <integer|string>;`
+    - 演算の連結: `x = con 1 > <=|+=|-=|*=|/=|%=|+|-|*|/|%> <integer|string>;`
+      - `>` をつけることで演算対象の変数を引き継いで連続演算が可能
+      - HSPの `selvar` に関する工夫
+- 実行時
+  - 変数IDの最小値設定: `convert <integer>`
 
 ### マトリクス演算
 ```coffee
