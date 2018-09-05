@@ -69,6 +69,7 @@ t = z > * k; rz + t > + l;
 #### AFTER
 ```coffee
 #include "rpgfunc.as"
+
 varsel 1 : var 0, 0, 123 ;# let x = 123
 varsel 2 : var 0, 0, 123 ;# let y = 123
 varsel 3 : var 0, 0, 123 ;# let z = 123
@@ -100,6 +101,8 @@ var 3, 1, 4 ;# * a
 varsel 16 ;# rx
 var 0, 1, 19 ;# = t
 ;# 以下略
+
+send
 ```
 ### 変換
 #### スクリプト
@@ -122,6 +125,7 @@ a + 1 > * 4 > - k;
 #### コンパイル後
 ```coffee
 #include "rpgfunc.as"
+
 varsel 1 : var 0, 0, 3 ;# let a = 3
 varsel 2 : var 0, 0, 3 ;# let b = 3
 varsel 3 : var 0, 0, 3 ;# let c = 3
@@ -146,6 +150,8 @@ varsel 1 ;# a
 var 1, 0, 1 ;# + 1
 var 3, 0, 4 ;# * 4
 var 2, 1, 11 ;# - k
+
+send
 ```
 
 ### 構文解析
