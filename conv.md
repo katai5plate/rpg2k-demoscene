@@ -28,8 +28,8 @@
     - 初期値に変数: `let <name|names> <string>;`
     - これを実行後、`<name|names>`を変数リストに格納
   - 変数の四則演算: `<name|names> <=|+|-|*|/|%> <integer|string>;`
-    - 演算の連結: `x = 1 > + 2 > - 3 > * 4 > / 5 > % 6;`
-      - `>` をつけることで演算対象の変数を引き継いで連続演算が可能
+    - 演算の連結: `x = 1 + 2 - 3 * 4 / 5 % 6;`
+      - `<=|+|-|*|/|%> <integer|string>` を繰り返すことで演算対象の変数を引き継いで連続演算が可能
       - HSPの `varsel` に関する工夫
 - 実行時オプション
   - 変数IDの最小値
@@ -52,17 +52,17 @@ let rx,ry,rz 0;
 let t 0;
 
 # calc #
-t = x > * a; rx = t;
-t = y > * b; rx + t;
-t = z > * c; rx + t > + d;
+t = x * a; rx = t;
+t = y * b; rx + t;
+t = z * c; rx + t + d;
 
-t = x > * e; ry = t;
-t = y > * f; ry + t;
-t = z > * g; ry + t > + h;
+t = x * e; ry = t;
+t = y * f; ry + t;
+t = z * g; ry + t + h;
 
-t = x > * i; rz = t;
-t = y > * j; rz + t;
-t = z > * k; rz + t > + l;
+t = x * i; rz = t;
+t = y * j; rz + t;
+t = z * k; rz + t + l;
 
 # return -> rx,ry,rz #
 ```
@@ -109,7 +109,7 @@ send
 ```coffee
 let a,b,c,d,e,f,g,h,i,j,k,l 3;
 a,f,k = 1;
-a + 1 > * 4 > - k;
+a + 1 * 4 - k;
 ```
 #### 変数リスト
 ```js
