@@ -163,23 +163,114 @@ send
 - `;` で区切る
 - スペースで区切る
 - `,` で区切る
-#### インスピレーション
+#### JSON化
 ```js
-"let a,b,c 10; a,f,k = 2;"
-    .replace(/;\s*?(\S)/g,";$1")
-    .split(";")
-    .map(v=>
-        v.split(" ")
-            .map(w=>
-                w.split(",")
-            )
-        )
-// [
-//     [
-//         ["let"],["a","b","c"],["10"]
-//     ],
-//     [
-//         ["a","f","k"],["="],["2"]
-//     ]
-// ]
+const syntxErr = (mes, args, point) => {
+    console.error(
+        `[[ SYNTAX ERROR ]] ${mes}: ${JSON.stringify(args)} -> ${point}`
+    );
+    process.exit();
+}
+
+const eachSlice = (tar, size) => {
+    let arr = []
+    for (let i = 0, l = tar.length; i < l; i += size) {
+        arr.push(tar.slice(i, i + size))
+    }
+    return arr
+};
+
+const isVar = item => ["number", "string"].includes(typeof item);
+
+const analyze = script => JSON.stringify(
+    script
+        .replace(/[\n|\r\n]/g, "")
+        .replace(/#.*?#/g, "")
+        .split(/;/)
+        .filter(v => v.length !== 0)
+        .map(v => {
+            const _v = v
+                .replace(/^\s+/g, "")
+                .split(/\s/)
+                .map(w => {
+                    let _w = w;
+                    if (!!w.match(/,/)) _w = w.split(/,/);
+                    return _w;
+                })
+            return _v;
+        })
+        .map(args => {
+            const arg0 = args[0];
+            switch (arg0) {
+                case "let": {
+                    const num = isNaN(args[2]) ? args[2] : Number(args[2]);
+                    if (!isVar(num)) {
+                        syntxErr("不正な値", args, num);
+                    }
+                    return {
+                        type: "let",
+                        vars: [...args[1]],
+                        numType: typeof (num),
+                        num,
+                    }
+                };
+                // if構文
+                case "if": { return { type: arg0 } };
+                case "else": { return { type: arg0 } };
+                case "endif": { return { type: arg0 } };
+                // ループ構文
+                case "for": { return { type: arg0 } };
+                case "endfor": { return { type: arg0 } };
+                case "while": { return { type: arg0 } };
+                case "endwhile": { return { type: arg0 } };
+                case "repeat": { return { type: arg0 } };
+                case "endrepeat": { return { type: arg0 } };
+                case "infinity": { return { type: arg0 } };
+                case "endinfinity": { return { type: arg0 } };
+                // 命令系
+                case "p.show": { return { type: arg0 } };
+                case "p.move": { return { type: arg0 } };
+                case "p.cls": { return { type: arg0 } };
+                case "vmes": { return { type: arg0 } };
+                // 演算
+                default: {
+                    const flow = eachSlice(args.slice(1), 2)
+                        .map(v => {
+                            const [ope, value] = [v[0], v[1]];
+                            if (!isVar(value)) {
+                                syntxErr("不正な値", args, value);
+                            }
+                            if (!isNaN(ope) || !"=+-*/%".includes(ope)) {
+                                syntxErr("不正な演算子", args, ope);
+                            }
+                            return {
+                                ope, value
+                            };
+                        })
+                    return {
+                        type: "calc",
+                        vars: [...args[0]],
+                        flow
+                    }
+                };
+            }
+        })
+    , null, "\t"
+);
+
+console.log(analyze(`
+# memo #
+
+let a,b,c,d,e 3;
+let x,y a;
+let z 1;
+
+# indent #
+
+a,c,e = 1;
+    b + 200;
+    b + e;
+
+a + 1 * 4 - c;
+`))
 ```
