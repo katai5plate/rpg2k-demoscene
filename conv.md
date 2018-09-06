@@ -111,6 +111,41 @@ let a,b,c,d,e,f,g,h,i,j,k,l 3;
 a,f,k = 1;
 a + 1 * 4 - k;
 ```
+#### 構文解析
+```js
+[
+  {
+    type: "let",
+    vars: [
+      "a", "b", "c", "d",
+      "e", "f", "g", "h",
+      "i", "j", "k", "l"
+    ],
+    numType: "number",
+    num: 3
+  },
+  {
+    type: "calc",
+    vars: [
+      "a", "f", "k"
+    ],
+    flow: [
+      { ope: "=", val: 1 }
+    ]
+  },
+  {
+    type: "calc",
+    vars: [
+      "a"
+    ],
+    flow: [
+      { ope: "+", val: 1 },
+      { ope: "*", val: 4 },
+      { ope: "-", val: "k" }
+    ]
+  }
+]
+```
 #### 変数リスト
 ```js
 {
@@ -118,7 +153,7 @@ a + 1 * 4 - k;
     null,
     "a", "b", "c", "d",
     "e", "f", "g", "h",
-    "i", "j", "k", "l",
+    "i", "j", "k", "l"
   ]
 }
 ```
