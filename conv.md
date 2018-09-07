@@ -159,8 +159,8 @@ varsel a : var 2, 3, k ;# a - k
 
 send
 ```
-#### モジュールにより最適化されたコード
-```js
+#### モジュールにより最適化
+```coffee
 varsel 1 : var 0, 0, 3, 0
 varsel 2 : var 0, 0, 3, 0
 varsel 3 : var 0, 0, 3, 0
