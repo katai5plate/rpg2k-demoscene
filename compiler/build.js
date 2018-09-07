@@ -125,12 +125,12 @@ const outputMethod = fixedScript => {
                 // if構文
                 case "if": {
                     let [target, ope, than] = args.slice(1);
-                    const thanIsCon = !isVar(than) ? -1 : isNaN(than) ? 0 : 1;
-                    if (thanIsCon===-1) {
+                    const thanIsVar = !isVar(than) ? -1 : isNaN(than) ? 1 : 0;
+                    if (thanIsVar === -1) {
                         syntxErr("不正な値", args, than);
                     }
-                    const opeId = ["=",">=","<=",">","<","!"].indexOf(ope);
-                    return `co 1, ${target}, ${thanIsCon}, ${than}, ${opeId}`;
+                    const opeId = ["=", ">=", "<=", ">", "<", "!"].indexOf(ope);
+                    return `co 1, ${target}, ${thanIsVar}, ${than}, ${opeId}`;
                 };
                 case "if.else": { return "coelse" };
                 case "if.end": { return "coend" };
