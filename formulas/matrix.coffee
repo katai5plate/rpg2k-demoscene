@@ -1,6 +1,14 @@
 # INPUT #
 let x,y,z 123;
+# | x 0 0 0 | #
+# | y 0 0 0 | #
+# | z 0 0 0 | #
+# | 1 0 0 0 | #
 
+# | a b c d | #
+# | e f g h | #
+# | i j k l | #
+# | 0 0 0 1 | #
 let a,b,c,d,e,f,g,h,i,j,k,l 0;
 a,f,k = 1;
 let rx,ry,rz 0;
