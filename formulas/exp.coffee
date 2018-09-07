@@ -58,3 +58,5 @@ loop;
 loop.end;
 
 # OUTPUT -> res #
+>>> 出力;
+res = res;
