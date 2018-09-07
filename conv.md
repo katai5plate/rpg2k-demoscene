@@ -159,6 +159,28 @@ varsel a : var 2, 3, k ;# a - k
 
 send
 ```
+#### モジュールにより最適化されたコード
+```js
+varsel 1 : var 0, 0, 3, 0
+varsel 2 : var 0, 0, 3, 0
+varsel 3 : var 0, 0, 3, 0
+varsel 4 : var 0, 0, 3, 0
+varsel 5 : var 0, 0, 3, 0
+varsel 6 : var 0, 0, 3, 0
+varsel 7 : var 0, 0, 3, 0
+varsel 8 : var 0, 0, 3, 0
+varsel 9 : var 0, 0, 3, 0
+varsel 10 : var 0, 0, 3, 0
+varsel 11 : var 0, 0, 3, 0
+varsel 12 : var 0, 0, 3, 0
+varsel 1 : var 0, 1, 1, 0
+varsel 6 : var 0, 1, 1, 0
+varsel 11 : var 0, 1, 1, 0
+varsel 1 : var 1, 1, 1, 0
+varsel 1 : var 3, 1, 4, 0
+varsel 1 : var 2, 3, 11, 0
+send
+```
 
 ### 構文解析
 - まず１行にする
