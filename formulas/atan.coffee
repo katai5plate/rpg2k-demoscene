@@ -28,3 +28,5 @@ if rec = 1;
 if.end;
 
 # OUTPUT -> res #
+>>> 出力;
+res = res;
