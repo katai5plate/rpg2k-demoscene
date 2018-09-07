@@ -162,6 +162,9 @@ const outputMethod = fixedScript => {
                 case "pic.move": { return { type: arg0 } };
                 case "pic.cls": { return { type: arg0 } };
                 // コマンド直接入力
+                case ">>>": {
+                    return `rem "${args.slice(1).join(" ")}"`;
+                }
                 case "cmd": {
                     return `${args[1]} ${args.slice(2).toString()}`;
                 }
