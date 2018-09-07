@@ -1,5 +1,7 @@
 # INPUT #
+>>> 引数;
 let deg 45;
+>>> =====;
 
 let res 0;
 let temp 0;
