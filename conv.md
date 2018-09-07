@@ -438,6 +438,7 @@ console.log(out)
 ```
 #### JSON化(コンパイラーの前身)
 <details><summary>開く</summary><p>
+
 ```js
 const syntxErr = (mes, args, point) => {
     console.error(
@@ -584,4 +585,5 @@ cmdv n1,n2 msg "hello$,$_world!$_$1$2";
 
 `))
 ```
+
 </p></details>
