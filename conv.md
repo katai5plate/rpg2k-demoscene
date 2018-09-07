@@ -126,6 +126,62 @@ varsel rz : var 1, 3, l ;# rz + l
 
 send
 ```
+#### FINALLY
+```coffee
+varsel 1 : var 0, 0, 123, 0
+varsel 2 : var 0, 0, 123, 0
+varsel 3 : var 0, 0, 123, 0
+varsel 4 : var 0, 0, 0, 0
+varsel 5 : var 0, 0, 0, 0
+varsel 6 : var 0, 0, 0, 0
+varsel 7 : var 0, 0, 0, 0
+varsel 8 : var 0, 0, 0, 0
+varsel 9 : var 0, 0, 0, 0
+varsel 10 : var 0, 0, 0, 0
+varsel 11 : var 0, 0, 0, 0
+varsel 12 : var 0, 0, 0, 0
+varsel 13 : var 0, 0, 0, 0
+varsel 14 : var 0, 0, 0, 0
+varsel 15 : var 0, 0, 0, 0
+varsel 16 : var 0, 0, 0, 0
+varsel 17 : var 0, 0, 0, 0
+varsel 18 : var 0, 0, 0, 0
+varsel 19 : var 0, 0, 0, 0
+varsel 4 : var 0, 1, 1, 0
+varsel 9 : var 0, 1, 1, 0
+varsel 14 : var 0, 1, 1, 0
+varsel 19 : var 0, 3, 1, 0
+varsel 19 : var 3, 3, 4, 0
+varsel 16 : var 0, 3, 19, 0
+varsel 19 : var 0, 3, 2, 0
+varsel 19 : var 3, 3, 5, 0
+varsel 16 : var 1, 3, 19, 0
+varsel 19 : var 0, 3, 3, 0
+varsel 19 : var 3, 3, 6, 0
+varsel 16 : var 1, 3, 19, 0
+varsel 16 : var 1, 3, 7, 0
+varsel 19 : var 0, 3, 1, 0
+varsel 19 : var 3, 3, 8, 0
+varsel 17 : var 0, 3, 19, 0
+varsel 19 : var 0, 3, 2, 0
+varsel 19 : var 3, 3, 9, 0
+varsel 17 : var 1, 3, 19, 0
+varsel 19 : var 0, 3, 3, 0
+varsel 19 : var 3, 3, 10, 0
+varsel 17 : var 1, 3, 19, 0
+varsel 17 : var 1, 3, 11, 0
+varsel 19 : var 0, 3, 1, 0
+varsel 19 : var 3, 3, 12, 0
+varsel 18 : var 0, 3, 19, 0
+varsel 19 : var 0, 3, 2, 0
+varsel 19 : var 3, 3, 13, 0
+varsel 18 : var 1, 3, 19, 0
+varsel 19 : var 0, 3, 3, 0
+varsel 19 : var 3, 3, 14, 0
+varsel 18 : var 1, 3, 19, 0
+varsel 18 : var 1, 3, 15, 0
+send
+```
 ### 変換
 #### スクリプト
 ```coffee
