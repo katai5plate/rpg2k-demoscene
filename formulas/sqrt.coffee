@@ -1,5 +1,7 @@
 # INPUT #
+>>> 引数;
 let arg 0;
+>>> =====;
 
 let res,pre,pref 0;
 let temp arg;
