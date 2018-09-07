@@ -123,20 +123,44 @@ const outputMethod = fixedScript => {
                     }
                 };
                 // if構文
-                case "if": { return { type: arg0 } };
-                case "else": { return { type: arg0 } };
-                case "endif": { return { type: arg0 } };
+                case "if": {
+                    let [target, ope, than] = args.slice(1);
+                    const thanIsCon = !isVar(than) ? -1 : isNaN(than) ? 0 : 1;
+                    if (thanIsCon===-1) {
+                        syntxErr("不正な値", args, than);
+                    }
+                    const opeId = ["=",">=","<=",">","<","!"].indexOf(ope);
+                    return `co 1, ${target}, ${thanIsCon}, ${than}, ${opeId}`;
+                };
+                case "if.else": { return "coelse" };
+                case "if.end": { return "coend" };
                 // ループ構文
-                case "loop:for": { return { type: arg0 } };
-                case "loop:while": { return { type: arg0 } };
-                case "loop:repeat": { return { type: arg0 } };
-                case "loop:infinity": { return { type: arg0 } };
-                case "loop.end": { return { type: arg0 } };
-                case "loop.break": { return { type: arg0 } };
+                case "loop": { return "cy" };
+                case "loop.for": {
+                    // まだ
+                    return "cy";
+                    /*
+                    varsel count : var 0, 0, INIT
+                    cy
+                        varsel count : var 1, (C/V), ADD
+                        co 1, count, (V&C/V&V), (C/V), OPE
+                            cybreak
+                        coend
+                        =====
+                        =====
+                    cyend
+                     */
+                    const [counter, init, ope, than, add] = args.slice(1);
+                    return `varsel ${counter} : var 0, 0, ${init} : cy : varsel ${counter} : var 1, (C/V), ${add} : co 1, ${counter}, (V&C/V&V), /*(C/V)*/:${than}, ${ope} : cybreak : coend`
+                };
+                case "loop.while": { return { type: arg0 } };
+                case "loop.repeat": { return { type: arg0 } };
+                case "loop.end": { return "cyend" };
+                case "loop.break": { return "cybreak" };
                 // 命令系
-                case "p:show": { return { type: arg0 } };
-                case "p:move": { return { type: arg0 } };
-                case "p:cls": { return { type: arg0 } };
+                case "pic.show": { return { type: arg0 } };
+                case "pic.move": { return { type: arg0 } };
+                case "pic.cls": { return { type: arg0 } };
                 // コマンド直接入力
                 case "cmd": {
                     return `${args[1]} ${args.slice(2).toString()}`;
