@@ -95,46 +95,34 @@ varsel f : var 0, 1, 1 ;# f = 1
 varsel k : var 0, 1, 1 ;# k = 1
 varsel t : var 0, 3, x ;# t = x
 varsel t : var 3, 3, a ;# t * a
-varsel r : var 0, 3, t ;# r = t
-varsel x : var 0, 3, t ;# x = t
+varsel rx : var 0, 3, t ;# rx = t
 varsel t : var 0, 3, y ;# t = y
 varsel t : var 3, 3, b ;# t * b
-varsel r : var 1, 3, t ;# r + t
-varsel x : var 1, 3, t ;# x + t
+varsel rx : var 1, 3, t ;# rx + t
 varsel t : var 0, 3, z ;# t = z
 varsel t : var 3, 3, c ;# t * c
-varsel r : var 1, 3, t ;# r + t
-varsel x : var 1, 3, t ;# x + t
-varsel r : var 1, 3, d ;# r + d
-varsel x : var 1, 3, d ;# x + d
+varsel rx : var 1, 3, t ;# rx + t
+varsel rx : var 1, 3, d ;# rx + d
 varsel t : var 0, 3, x ;# t = x
 varsel t : var 3, 3, e ;# t * e
-varsel r : var 0, 3, t ;# r = t
-varsel y : var 0, 3, t ;# y = t
+varsel ry : var 0, 3, t ;# ry = t
 varsel t : var 0, 3, y ;# t = y
 varsel t : var 3, 3, f ;# t * f
-varsel r : var 1, 3, t ;# r + t
-varsel y : var 1, 3, t ;# y + t
+varsel ry : var 1, 3, t ;# ry + t
 varsel t : var 0, 3, z ;# t = z
 varsel t : var 3, 3, g ;# t * g
-varsel r : var 1, 3, t ;# r + t
-varsel y : var 1, 3, t ;# y + t
-varsel r : var 1, 3, h ;# r + h
-varsel y : var 1, 3, h ;# y + h
+varsel ry : var 1, 3, t ;# ry + t
+varsel ry : var 1, 3, h ;# ry + h
 varsel t : var 0, 3, x ;# t = x
 varsel t : var 3, 3, i ;# t * i
-varsel r : var 0, 3, t ;# r = t
-varsel z : var 0, 3, t ;# z = t
+varsel rz : var 0, 3, t ;# rz = t
 varsel t : var 0, 3, y ;# t = y
 varsel t : var 3, 3, j ;# t * j
-varsel r : var 1, 3, t ;# r + t
-varsel z : var 1, 3, t ;# z + t
+varsel rz : var 1, 3, t ;# rz + t
 varsel t : var 0, 3, z ;# t = z
 varsel t : var 3, 3, k ;# t * k
-varsel r : var 1, 3, t ;# r + t
-varsel z : var 1, 3, t ;# z + t
-varsel r : var 1, 3, l ;# r + l
-varsel z : var 1, 3, l ;# z + l
+varsel rz : var 1, 3, t ;# rz + t
+varsel rz : var 1, 3, l ;# rz + l
 
 send
 ```
@@ -145,80 +133,29 @@ let a,b,c,d,e,f,g,h,i,j,k,l 3;
 a,f,k = 1;
 a + 1 * 4 - k;
 ```
-#### 構文解析
-```js
-[
-  {
-    type: "let",
-    vars: [
-      "a", "b", "c", "d",
-      "e", "f", "g", "h",
-      "i", "j", "k", "l"
-    ],
-    numType: "number",
-    num: 3
-  },
-  {
-    type: "calc",
-    vars: [
-      "a", "f", "k"
-    ],
-    flow: [
-      { ope: "=", val: 1 }
-    ]
-  },
-  {
-    type: "calc",
-    vars: [
-      "a"
-    ],
-    flow: [
-      { ope: "+", val: 1 },
-      { ope: "*", val: 4 },
-      { ope: "-", val: "k" }
-    ]
-  }
-]
-```
-#### 変数リスト
-```js
-{
-  variables: [
-    null,
-    "a", "b", "c", "d",
-    "e", "f", "g", "h",
-    "i", "j", "k", "l"
-  ]
-}
-```
 #### コンパイル後
 ```coffee
 #include "rpgfunc.as"
 
-varsel 1 : var 0, 0, 3 ;# let a = 3
-varsel 2 : var 0, 0, 3 ;# let b = 3
-varsel 3 : var 0, 0, 3 ;# let c = 3
-varsel 4 : var 0, 0, 3 ;# let d = 3
-varsel 5 : var 0, 0, 3 ;# let e = 3
-varsel 6 : var 0, 0, 3 ;# let f = 3
-varsel 7 : var 0, 0, 3 ;# let g = 3
-varsel 8 : var 0, 0, 3 ;# let h = 3
-varsel 9 : var 0, 0, 3 ;# let i = 3
-varsel 10 : var 0, 0, 3 ;# let j = 3
-varsel 11 : var 0, 0, 3 ;# let k = 3
-varsel 12 : var 0, 0, 3 ;# let l = 3
+a = 1 : varsel a : var 0, 0, 3 ;# let a = 3
+b = 2 : varsel b : var 0, 0, 3 ;# let b = 3
+c = 3 : varsel c : var 0, 0, 3 ;# let c = 3
+d = 4 : varsel d : var 0, 0, 3 ;# let d = 3
+e = 5 : varsel e : var 0, 0, 3 ;# let e = 3
+f = 6 : varsel f : var 0, 0, 3 ;# let f = 3
+g = 7 : varsel g : var 0, 0, 3 ;# let g = 3
+h = 8 : varsel h : var 0, 0, 3 ;# let h = 3
+i = 9 : varsel i : var 0, 0, 3 ;# let i = 3
+j = 10 : varsel j : var 0, 0, 3 ;# let j = 3
+k = 11 : varsel k : var 0, 0, 3 ;# let k = 3
+l = 12 : varsel l : var 0, 0, 3 ;# let l = 3
 
-varsel 1 ;# a
-var 0, 0, 1 ;# = 1
-varsel 6 ;# f
-var 0, 0, 1 ;# = 1
-varsel 11 ;# k
-var 0, 0, 1 ;# = 1
-
-varsel 1 ;# a
-var 1, 0, 1 ;# + 1
-var 3, 0, 4 ;# * 4
-var 2, 1, 11 ;# - k
+varsel a : var 0, 1, 1 ;# a = 1
+varsel f : var 0, 1, 1 ;# f = 1
+varsel k : var 0, 1, 1 ;# k = 1
+varsel a : var 1, 1, 1 ;# a + 1
+varsel a : var 3, 1, 4 ;# a * 4
+varsel a : var 2, 3, k ;# a - k
 
 send
 ```
@@ -395,7 +332,7 @@ const outputMethod = fixedScript => {
                 }
                 // 演算
                 default: {
-                    const target = [...args[0]];
+                    const target = [...(Array.isArray(args[0]) ? args[0] : [args[0]])];
                     const flow = eachSlice(args.slice(1), 2)
                         .map(v => {
                             const [ope, value] = [v[0], v[1]];
