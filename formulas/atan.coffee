@@ -1,9 +1,7 @@
 # INPUT #
 let arg 0;
 
-let res 0;
-let temp 0;
-let rec 0;
+let res,temp,rec 0;
 
 if arg > 100;
   temp = arg;
