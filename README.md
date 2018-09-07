@@ -6,4 +6,5 @@
 - [音楽](midi.md)
 - [演出](effect.md)
 - [コンパイル](conv.md)
+  - [スクリプト言語仕様](script.md)
 - []()
