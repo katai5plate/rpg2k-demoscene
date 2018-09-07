@@ -1,5 +1,7 @@
 # INPUT #
+>>> 引数
 let x1,y1,x2,y2 0;
+
 
 let arg,temp,res,pre,pref 0;
 
