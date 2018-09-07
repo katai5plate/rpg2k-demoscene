@@ -249,6 +249,8 @@ send
 - `,` で区切る
 #### コンパイラー
 ```js
+const __VARS_START = 100;
+
 const syntxErr = (mes, args, point) => {
     console.error(
         `[[ SYNTAX ERROR ]] ${mes}: ${JSON.stringify(args)} -> ${point}`
@@ -302,7 +304,7 @@ const parse = script => {
 
 const outputDefine = fixedScript => {
     // 変数宣言
-    let defineIndex = 0;
+    let defineIndex = __VARS_START || 0;
     const defineData = fixedScript
         // letを抽出
         .filter(v => v[0] === "let")
