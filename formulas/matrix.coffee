@@ -29,3 +29,7 @@ t = y * j; rz + t;
 t = z * k; rz + t + l;
 
 # OUTPUT -> rx,ry,rz #
+>>> 出力;
+rx = rx;
+ry = ry;
+rz = rz;
