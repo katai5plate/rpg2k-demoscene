@@ -200,10 +200,11 @@ const outputMethod = fixedScript => {
                             };
                         })
                     const res = flow.reduce((vv, v) => {
-                        const { ope, value } = v;
+                        let { ope, value } = v;
+                        value = isNaN(value) ? value : Number(value);
                         const opeId = "=+-*/%".indexOf(ope);
                         const pushData = target.reduce((p, c) => {
-                            return [...p, `varsel ${c} : var ${opeId}, ${isNaN(value) ? 3 : 1}, ${value} ;# ${c} ${ope} ${value}`]
+                            return [...p, `varsel ${c} : var ${opeId}, ${isNaN(value) ? 1 : 0}, ${value} ;# ${c} ${ope} ${value}`]
                         }, [])
                         return `${vv === "" ? "" : vv + "\n"}${pushData.join("\n")}`
                     }, "")
