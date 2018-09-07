@@ -9,7 +9,7 @@ if arg > 100;
   temp = arg;
   arg = 10000 / temp;
   rec = 1;
-if.end
+if.end;
 
 temp = arg / arg * 3 + 50000 / 100;
 res = 160000 / temp * arg;
