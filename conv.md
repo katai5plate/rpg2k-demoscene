@@ -70,37 +70,71 @@ t = z * k; rz + t + l;
 ```coffee
 #include "rpgfunc.as"
 
-varsel 1 : var 0, 0, 123 ;# let x = 123
-varsel 2 : var 0, 0, 123 ;# let y = 123
-varsel 3 : var 0, 0, 123 ;# let z = 123
-varsel 4 : var 0, 0, 0 ;# let a = 0
-varsel 5 : var 0, 0, 0 ;# let b = 0
-varsel 6 : var 0, 0, 0 ;# let c = 0
-varsel 7 : var 0, 0, 0 ;# let d = 0
-varsel 8 : var 0, 0, 0 ;# let e = 0
-varsel 9 : var 0, 0, 0 ;# let f = 0
-varsel 10 : var 0, 0, 0 ;# let g = 0
-varsel 11 : var 0, 0, 0 ;# let h = 0
-varsel 12 : var 0, 0, 0 ;# let i = 0
-varsel 13 : var 0, 0, 0 ;# let j = 0
-varsel 14 : var 0, 0, 0 ;# let k = 0
-varsel 15 : var 0, 0, 0 ;# let l = 0
-varsel 4 ;# a
-var 0, 0, 1 ;# = 1
-varsel 9 ;# f
-var 0, 0, 1 ;# = 1
-varsel 14 ;# k
-var 0, 0, 1 ;# = 1
-varsel 16 : var 0, 0, 0 ;# let rx = 0
-varsel 17 : var 0, 0, 0 ;# let ry = 0
-varsel 18 : var 0, 0, 0 ;# let rz = 0
-varsel 19 : var 0, 0, 0 ;# let t = 0
-varsel 19 ;# t
-var 0, 1, 1 ;# = x
-var 3, 1, 4 ;# * a
-varsel 16 ;# rx
-var 0, 1, 19 ;# = t
-;# 以下略
+x = 1 : varsel x : var 0, 0, 123 ;# let x = 123
+y = 2 : varsel y : var 0, 0, 123 ;# let y = 123
+z = 3 : varsel z : var 0, 0, 123 ;# let z = 123
+a = 4 : varsel a : var 0, 0, 0 ;# let a = 0
+b = 5 : varsel b : var 0, 0, 0 ;# let b = 0
+c = 6 : varsel c : var 0, 0, 0 ;# let c = 0
+d = 7 : varsel d : var 0, 0, 0 ;# let d = 0
+e = 8 : varsel e : var 0, 0, 0 ;# let e = 0
+f = 9 : varsel f : var 0, 0, 0 ;# let f = 0
+g = 10 : varsel g : var 0, 0, 0 ;# let g = 0
+h = 11 : varsel h : var 0, 0, 0 ;# let h = 0
+i = 12 : varsel i : var 0, 0, 0 ;# let i = 0
+j = 13 : varsel j : var 0, 0, 0 ;# let j = 0
+k = 14 : varsel k : var 0, 0, 0 ;# let k = 0
+l = 15 : varsel l : var 0, 0, 0 ;# let l = 0
+rx = 16 : varsel rx : var 0, 0, 0 ;# let rx = 0
+ry = 17 : varsel ry : var 0, 0, 0 ;# let ry = 0
+rz = 18 : varsel rz : var 0, 0, 0 ;# let rz = 0
+t = 19 : varsel t : var 0, 0, 0 ;# let t = 0
+
+varsel a : var 0, 1, 1 ;# a = 1
+varsel f : var 0, 1, 1 ;# f = 1
+varsel k : var 0, 1, 1 ;# k = 1
+varsel t : var 0, 3, x ;# t = x
+varsel t : var 3, 3, a ;# t * a
+varsel r : var 0, 3, t ;# r = t
+varsel x : var 0, 3, t ;# x = t
+varsel t : var 0, 3, y ;# t = y
+varsel t : var 3, 3, b ;# t * b
+varsel r : var 1, 3, t ;# r + t
+varsel x : var 1, 3, t ;# x + t
+varsel t : var 0, 3, z ;# t = z
+varsel t : var 3, 3, c ;# t * c
+varsel r : var 1, 3, t ;# r + t
+varsel x : var 1, 3, t ;# x + t
+varsel r : var 1, 3, d ;# r + d
+varsel x : var 1, 3, d ;# x + d
+varsel t : var 0, 3, x ;# t = x
+varsel t : var 3, 3, e ;# t * e
+varsel r : var 0, 3, t ;# r = t
+varsel y : var 0, 3, t ;# y = t
+varsel t : var 0, 3, y ;# t = y
+varsel t : var 3, 3, f ;# t * f
+varsel r : var 1, 3, t ;# r + t
+varsel y : var 1, 3, t ;# y + t
+varsel t : var 0, 3, z ;# t = z
+varsel t : var 3, 3, g ;# t * g
+varsel r : var 1, 3, t ;# r + t
+varsel y : var 1, 3, t ;# y + t
+varsel r : var 1, 3, h ;# r + h
+varsel y : var 1, 3, h ;# y + h
+varsel t : var 0, 3, x ;# t = x
+varsel t : var 3, 3, i ;# t * i
+varsel r : var 0, 3, t ;# r = t
+varsel z : var 0, 3, t ;# z = t
+varsel t : var 0, 3, y ;# t = y
+varsel t : var 3, 3, j ;# t * j
+varsel r : var 1, 3, t ;# r + t
+varsel z : var 1, 3, t ;# z + t
+varsel t : var 0, 3, z ;# t = z
+varsel t : var 3, 3, k ;# t * k
+varsel r : var 1, 3, t ;# r + t
+varsel z : var 1, 3, t ;# z + t
+varsel r : var 1, 3, l ;# r + l
+varsel z : var 1, 3, l ;# z + l
 
 send
 ```
