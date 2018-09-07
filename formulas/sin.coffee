@@ -1,9 +1,8 @@
 # INPUT #
 let deg 0;
 
-let res,temp,mark 0;
-
-mark = 1;
+let res,temp 0;
+let mark 1;
 
 if deg < 0;
   deg * -1;
