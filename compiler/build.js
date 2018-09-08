@@ -63,6 +63,7 @@ const outputDefine = fixedScript => {
         // データをまとめる
         .reduce((p, c) => {
             const opt = c[3];
+            const memo = c.slice(4).join(" ");
             const _c = c
                 .slice(1)
                 .map(w => Array.isArray(w) ? w : [w])
@@ -79,6 +80,7 @@ const outputDefine = fixedScript => {
                         num: isNaN(num[0]) ? num[0] : Number(num[0]),
                         index: defineIndex,
                         opt,
+                        memo,
                     }
                 ]
             }, [])
@@ -106,11 +108,11 @@ const outputDefine = fixedScript => {
         let res = "";
         switch (v.opt) {
             case "in": {
-                res = `rem "INPUT: ${v.var} ${v.index}" : ${v.var} = ${v.index} // : ${scr}\n`;
+                res = `rem "INPUT: ${v.var} ${v.index} ${v.memo}" : ${v.var} = ${v.index} // : ${scr}\n`;
                 break;
             };
             case "out": {
-                res = `rem "OUTPUT: ${v.var} ${v.index}" : ${v.var} = ${v.index} : ${scr}\nrem "-----"`;
+                res = `rem "OUTPUT: ${v.var} ${v.index} ${v.memo}" : ${v.var} = ${v.index} : ${scr}\nrem "-----"`;
                 break;
             };
             default: {

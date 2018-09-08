@@ -1,6 +1,7 @@
 let deg 0 in;
 let r 0 in;
 let plus 0 in;
+let cosFlug 0 in;
 
 let res 0 out;
 
@@ -8,8 +9,10 @@ let temp 0;
 let mark 1;
 
 let backup_deg deg;
-let backup_r r;
-let backup_plus plus;
+
+if cosFlug = 1;
+  deg + 90;
+if.end;
 
 if deg < 0;
   deg * -1;
@@ -37,10 +40,6 @@ res = temp * -20 + 12000;
 temp * temp / 100;
 res + temp * deg / 6750 * mark;
 
->>> added;
-
 res * r / 100 + plus;
 
 deg = backup_deg;
-r = backup_r;
-plus = backup_plus;
