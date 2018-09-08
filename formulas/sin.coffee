@@ -1,4 +1,5 @@
-let deg 0;
+let deg 0 in;
+let res 0 out;
 >>> =====;
 
 let res,temp 0;

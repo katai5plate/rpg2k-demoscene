@@ -62,6 +62,7 @@ const outputDefine = fixedScript => {
         .filter(v => v[0] === "let")
         // データをまとめる
         .reduce((p, c) => {
+            const opt = c[3];
             const _c = c
                 .slice(1)
                 .map(w => Array.isArray(w) ? w : [w])
@@ -77,6 +78,7 @@ const outputDefine = fixedScript => {
                         var: c2,
                         num: isNaN(num[0]) ? num[0] : Number(num[0]),
                         index: defineIndex,
+                        opt,
                     }
                 ]
             }, [])
@@ -99,7 +101,20 @@ const outputDefine = fixedScript => {
             return v;
         })
     const defineOutput = defineConvert.map(v => {
-        return `${v.var} = ${v.index} : varsel ${v.var} : var 0, 0, ${v.num} ;# ${v.note}`
+        let res = "";
+        switch (v.opt) {
+            case "in": {
+                res += 'rem "INPUT" : ';
+                break;
+            };
+            case "out": {
+                res += 'rem "OUTPUT" : ';
+                break;
+            };
+            default: { };
+        }
+        res += `${v.var} = ${v.index} : varsel ${v.var} : var 0, 0, ${v.num} ;# ${v.note}`;
+        return res
     })
     return defineOutput
 };
