@@ -101,19 +101,23 @@ const outputDefine = fixedScript => {
             return v;
         })
     const defineOutput = defineConvert.map(v => {
+        const eqVal = isNaN(v.num) ? 1 : 0;
+        const scr = `varsel ${v.var} : var 0, ${eqVal}, ${v.num} ;# ${v.note}`;
         let res = "";
         switch (v.opt) {
             case "in": {
-                res += 'rem "INPUT" : ';
+                res = `rem "INPUT: ${v.var} ${v.index}" : ${v.var} = ${v.index} // : ${scr}\n`;
                 break;
             };
             case "out": {
-                res += 'rem "OUTPUT" : ';
+                res = `rem "OUTPUT: ${v.var} ${v.index}" : ${v.var} = ${v.index} : ${scr}\nrem "-----"`;
                 break;
             };
-            default: { };
+            default: {
+                res = `${v.var} = ${v.index} : ${scr}`;
+                break;
+            };
         }
-        res += `${v.var} = ${v.index} : varsel ${v.var} : var 0, 0, ${v.num} ;# ${v.note}`;
         return res
     })
     return defineOutput
@@ -236,6 +240,7 @@ const out = [
     `#include "rpgfunc.as"`,
     "", "/* DECLARATION */",
     ...outputDefine(ast),
+    "", 'rem "====="',
     "", "/* PROCESSING */",
     ...outputMethod(ast),
     "", "/* TESTING */",

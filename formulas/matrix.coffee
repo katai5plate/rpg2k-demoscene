@@ -2,22 +2,21 @@
 # | y 0 0 0 | #
 # | z 0 0 0 | #
 # | 1 0 0 0 | #
-let x,y,z 123;
+let x,y,z 123 in;
 
 # | a b c d | #
 # | e f g h | #
 # | i j k l | #
 # | 0 0 0 1 | #
-let a 1;
-let b,c,d,e 0;
-let f 1;
-let g,h,i,j 0;
-let k 1;
-let l 0;
+let a 1 in;
+let b,c,d,e 0 in;
+let f 1 in;
+let g,h,i,j 0 in;
+let k 1 in;
+let l 0 in;
 
->>> =====;
+let rx,ry,rz 0 out;
 
-let rx,ry,rz 0;
 let t 0;
 
 t = x * a; rx = t;
@@ -31,8 +30,3 @@ t = z * g; ry + t + h;
 t = x * i; rz = t;
 t = y * j; rz + t;
 t = z * k; rz + t + l;
-
->>> OUTPUT;
-rx = rx;
-ry = ry;
-rz = rz;

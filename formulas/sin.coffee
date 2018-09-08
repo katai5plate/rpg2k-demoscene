@@ -1,9 +1,15 @@
 let deg 0 in;
-let res 0 out;
->>> =====;
+let r 0 in;
+let plus 0 in;
 
-let res,temp 0;
+let res 0 out;
+
+let temp 0;
 let mark 1;
+
+let backup_deg deg;
+let backup_r r;
+let backup_plus plus;
 
 if deg < 0;
   deg * -1;
@@ -20,7 +26,9 @@ if.else;
     deg - 180;
     mark * -1;
   if.else;
-    deg - 180 * -1;
+    if deg > 90;
+      deg - 180 * -1;
+    if.end;
   if.end;
 if.end;
 
@@ -29,5 +37,10 @@ res = temp * -20 + 12000;
 temp * temp / 100;
 res + temp * deg / 6750 * mark;
 
->>> OUTPUT;
-res = res;
+>>> added;
+
+res * r / 100 + plus;
+
+deg = backup_deg;
+r = backup_r;
+plus = backup_plus;
