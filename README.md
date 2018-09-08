@@ -8,3 +8,8 @@
 - [コンパイル](conv.md)
   - [スクリプト言語仕様](script.md)
 - []()
+
+# コンパイラーの使い方
+```
+yarn build <filepath/name.coffee> <?startVariableID>
+```

@@ -1,4 +1,7 @@
-const __VARS_START = 100;
+
+
+const __FORMULA = process.argv[2]
+const __VARS_START = process.argv[3] || 0;
 
 const syntxErr = (mes, args, point) => {
     console.error(
@@ -110,18 +113,6 @@ const outputMethod = fixedScript => {
         .map(args => {
             const arg0 = args[0];
             switch (arg0) {
-                case "let": {
-                    const num = isNaN(args[2]) ? args[2] : Number(args[2]);
-                    if (!isVar(num)) {
-                        syntxErr("不正な値", args, num);
-                    }
-                    return {
-                        type: "let",
-                        vars: [...args[1]],
-                        numType: typeof (num),
-                        numS
-                    }
-                };
                 // if構文
                 case "if": {
                     let [target, ope, than] = args.slice(1);
@@ -220,46 +211,27 @@ const outputMethod = fixedScript => {
 
 // --------------------------------------------------
 
-const source = `
-# memo #
+const fs = require("fs");
 
-let a,b,c,d,e 3;
-let x,y a;
-let z 1;
-
-# indent #
-
-a,c,e = 1;
-    b + 200;
-    b + e;
-
-a + 1 * 4 - c;
-
-# escape -> $ #
-
-cmd msg "hello$,$_world!";
-
-# cmd + var #
-
-let n1 114;
-let n2 514;
-cmdv n1,n2 msg "hello$,$_world!$n\\v[$1]$,\\v[$2]";
-`;
+const source = fs.readFileSync(`${process.cwd()}/${__FORMULA}`, { encoding: "utf-8" });
 
 const ast = parse(source);
 
 const out = [
     `#include "rpgfunc.as"`,
-    "",
-    "/* 宣言部 */",
+    "", "/* 宣言部 */",
     ...outputDefine(ast),
-    "",
-    "/* 処理部 */",
+    "", "/* 処理部 */",
     ...outputMethod(ast),
-    "",
-    "/* テスト */",
-    `send 1`,
-    `receive 1`,
+    "", "/* テスト */",
+    `; send 1`,
+    `; receive 1`,
+    "", "/* 送信 */",
+    `send`
 ].join("\n")
 
 console.log(out)
+
+const fname = require("path").parse(__FORMULA).name;
+
+fs.writeFileSync(`${process.cwd()}/dist/${fname}.hsp`, out);

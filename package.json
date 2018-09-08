@@ -1,0 +1,14 @@
+{
+  "name": "rpg2k-demoscene",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/katai5plate/rpg2k-demoscene",
+  "author": "katai5plate <katai5plate.sub@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "node compiler/build"
+  },
+  "dependencies": {
+    "path": "^0.12.7"
+  }
+}
