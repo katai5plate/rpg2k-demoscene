@@ -1,4 +1,3 @@
-# INPUT #
 let x1,y1,x2,y2 0;
 >>> =====;
 
@@ -24,6 +23,5 @@ loop.end;
 
 res + temp / 2;
 
-# OUTPUT -> res #
->>> 出力;
+>>> OUTPUT;
 res = res;

@@ -1,4 +1,3 @@
-# INPUT #
 let arg 0;
 >>> =====;
 
@@ -26,6 +25,5 @@ if rec = 1;
   res - 90 * -1;
 if.end;
 
-# OUTPUT -> res #
->>> 出力;
+>>> OUTPUT;
 res = res;

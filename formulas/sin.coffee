@@ -1,4 +1,3 @@
-# INPUT #
 let deg 0;
 >>> =====;
 
@@ -29,6 +28,5 @@ res = temp * -20 + 12000;
 temp * temp / 100;
 res + temp * deg / 6750 * mark;
 
-# OUTPUT -> res #
->>> 出力;
+>>> OUTPUT;
 res = res;

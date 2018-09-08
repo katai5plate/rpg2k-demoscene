@@ -1,4 +1,3 @@
-# INPUT #
 let arg 0;
 >>> =====;
 
@@ -19,6 +18,5 @@ loop.end;
 
 res + temp / 2;
 
-# OUTPUT -> res #
->>> 出力;
+>>> OUTPUT;
 res = res;

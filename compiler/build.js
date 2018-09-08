@@ -219,14 +219,14 @@ const ast = parse(source);
 
 const out = [
     `#include "rpgfunc.as"`,
-    "", "/* 宣言部 */",
+    "", "/* DECLARATION */",
     ...outputDefine(ast),
-    "", "/* 処理部 */",
+    "", "/* PROCESSING */",
     ...outputMethod(ast),
-    "", "/* テスト */",
+    "", "/* TESTING */",
     `; send 1`,
     `; receive 1`,
-    "", "/* 送信 */",
+    "", "/* SUBMIT */",
     `send`
 ].join("\n")
 
@@ -234,4 +234,4 @@ console.log(out)
 
 const fname = require("path").parse(__FORMULA).name;
 
-fs.writeFileSync(`${process.cwd()}/dist/${fname}.hsp`, out);
+fs.writeFileSync(`${process.cwd()}/dist/${fname}.hsp`, out, { encoding: "utf8" });

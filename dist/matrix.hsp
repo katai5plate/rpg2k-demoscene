@@ -1,6 +1,6 @@
 #include "rpgfunc.as"
 
-/* 宣言部 */
+/* DECLARATION */
 x = 1 : varsel x : var 0, 0, 123 ;# let x = 123
 y = 2 : varsel y : var 0, 0, 123 ;# let y = 123
 z = 3 : varsel z : var 0, 0, 123 ;# let z = 123
@@ -21,7 +21,7 @@ ry = 17 : varsel ry : var 0, 0, 0 ;# let ry = 0
 rz = 18 : varsel rz : var 0, 0, 0 ;# let rz = 0
 t = 19 : varsel t : var 0, 0, 0 ;# let t = 0
 
-/* 処理部 */
+/* PROCESSING */
 rem "====="
 varsel a : var 0, 0, 1 ;# a = 1
 varsel f : var 0, 0, 1 ;# f = 1
@@ -56,14 +56,14 @@ varsel t : var 0, 1, z ;# t = z
 varsel t : var 3, 1, k ;# t * k
 varsel rz : var 1, 1, t ;# rz + t
 varsel rz : var 1, 1, l ;# rz + l
-rem "出力"
+rem "OUTPUT"
 varsel rx : var 0, 1, rx ;# rx = rx
 varsel ry : var 0, 1, ry ;# ry = ry
 varsel rz : var 0, 1, rz ;# rz = rz
 
-/* テスト */
+/* TESTING */
 ; send 1
 ; receive 1
 
-/* 送信 */
+/* SUBMIT */
 send
