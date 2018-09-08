@@ -3,14 +3,20 @@
 # | z 0 0 0 | #
 # | 1 0 0 0 | #
 let x,y,z 123;
->>> =====;
 
 # | a b c d | #
 # | e f g h | #
 # | i j k l | #
 # | 0 0 0 1 | #
-let a,b,c,d,e,f,g,h,i,j,k,l 0;
-a,f,k = 1;
+let a 1;
+let b,c,d,e 0;
+let f 1;
+let g,h,i,j 0;
+let k 1;
+let l 0;
+
+>>> =====;
+
 let rx,ry,rz 0;
 let t 0;
 
