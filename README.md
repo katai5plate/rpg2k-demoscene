@@ -12,12 +12,12 @@
 
 # コンパイラーの使い方
 0. PCに以下をインストール
-- Node.js
-- yarn
-- git
+- [Node.js](https://nodejs.org/ja/)
+- [yarn](https://yarnpkg.com/ja/)
+- [git](https://git-scm.com/)
 - [Hot Soup Processor](http://hsp.tv/idman/download.html)
 - [RPGツクール200X イベント命令のスクリプト化モジュール](http://www.geocities.jp/orreiclan/content/work/work.html?file=rpgfunc_1_02&type=hsp)
-- RPGツクール2000 または 2003
+- [RPGツクール2000](https://tkool.jp/support/download/rpg2000/trial) または 2003
 
 1. コマンドプロンプトを開く
 
