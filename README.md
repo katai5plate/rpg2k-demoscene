@@ -29,11 +29,11 @@ yarn install
 ```
 
 3. 実行
-```
+```shell
 yarn build <スクリプトのファイルパス> <?使い始める変数IDのマイナス１>
 ```
 例（circle.coffeeを変数101スタートでコンパイル）：
-```
+```shell
 yarn build formula/circle.coffee 100
 ```
 
