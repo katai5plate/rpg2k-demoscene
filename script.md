@@ -25,9 +25,9 @@ let x,y,z 10; # x = 10 & y = 10 & z = 10 #
 - `in` `out` を第3引数に設定することで、明示的に入出力のコメントを出力。
   - 第4引数以降はコメントを追記できる。
 ```coffee
-let degree in kakudo;
+let degree 180 in kakudo;
+let result 0 out kekka;
 result = degree + 90;
-let result out kekka;
 ```
 ### 演算
 - 式は `左結合` である。
