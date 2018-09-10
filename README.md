@@ -34,7 +34,7 @@ yarn build <スクリプトのファイルパス> <?使い始める変数IDの�
 ```
 例（circle.coffeeを変数101スタートでコンパイル）：
 ```shell
-yarn build formula/circle.coffee 100
+yarn build formulas/circle.coffee 100
 ```
 
 4. distディレクトリにHSPファイルが作られるので開く
