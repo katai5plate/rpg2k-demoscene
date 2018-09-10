@@ -21,7 +21,7 @@
 
 1. コマンドプロンプトを開く
 
-2. コマンド入力でインストール
+2. コマンド入力でダウンロード＆インストール
 ```shell
 cd <インストールしたいディレクトリ>
 git clone https://github.com/katai5plate/rpg2k-demoscene/
