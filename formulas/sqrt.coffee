@@ -1,7 +1,9 @@
-let arg 0;
->>> =====;
+# COUTION! This code is unverified. #
 
-let res,pre,pref 0;
+let arg 0 in;
+let res 0 out;
+
+let pre,pref 0;
 let temp arg;
 
 loop;
@@ -17,6 +19,3 @@ loop;
 loop.end;
 
 res + temp / 2;
-
->>> OUTPUT;
-res = res;
