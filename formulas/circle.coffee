@@ -1,20 +1,15 @@
-let deg 0 in kakudo;
-let r 0 in hankei;
-let offsetX 0 in mannaka X;
-let offsetY 0 in mannaka Y;
-let mulX 100 in kakudai X;
-let mulY 100 in kakudai Y;
+let deg 0 in angle degree;
+let r 0 in redius;
+let offsetX,offsetY 0 in center;
+let mulX,mulY 100 in zoom per;
 
-let resX 0 out;
-let resY 0 out;
+let resX,resY 0 out position;
 
-let res 0;
-let temp 0;
+let res,temp 0;
 let mark 1;
-
 let backup_deg deg;
 
->>> start;
+>>> sin wave;
 
 if deg < 0;
   deg * -1;
@@ -49,7 +44,7 @@ deg = backup_deg + 90;
 res,temp = 0;
 mark = 1;
 
->>> y;
+>>> cos wave;
 
 if deg < 0;
   deg * -1;
