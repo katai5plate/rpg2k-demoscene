@@ -1,7 +1,11 @@
-let arg 0;
->>> =====;
+# COUTION! This code is unverified. #
 
-let res,roe,two 0;
+# ex. e^8.2941 -> arg: 82941 #
+let arg 0 in x10000;
+# ex. res: 401152 -> 4011.52 '=. 4000.20  #
+let res 0 out x100;
+
+let roe,two 0;
 
 loop;
   if arg >= 5000;
@@ -54,6 +58,3 @@ loop;
   res * 2;
   two - 1;
 loop.end;
-
->>> OUTPUT;
-res = res;
