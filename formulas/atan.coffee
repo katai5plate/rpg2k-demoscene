@@ -1,7 +1,7 @@
-let arg 0;
->>> =====;
+let arg 0 in;
+let res 0 out;
 
-let res,temp,rec 0;
+let temp,rec 0;
 
 if arg > 100;
   temp = arg;
@@ -9,7 +9,7 @@ if arg > 100;
   rec = 1;
 if.end;
 
-temp = arg / arg * 3 + 50000 / 100;
+temp = arg * arg * 3 + 50000 / 100;
 res = 160000 / temp * arg;
 arg * 250;
 res + arg;
@@ -20,10 +20,6 @@ temp % 1000;
 if temp >= 500;
   res + 1;
 if.end;
-
 if rec = 1;
   res - 90 * -1;
 if.end;
-
->>> OUTPUT;
-res = res;
