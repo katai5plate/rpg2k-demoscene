@@ -1,13 +1,18 @@
-let x1,y1,x2,y2 0;
->>> =====;
+# COUTION! This code is unverified. #
 
-let arg,temp,res,pre,pref 0;
+let x1,y1 0 in from;
+let x2,y2 0 in to;
+let res 0 out distance;
+
+let arg,temp,pre,pref 0;
+
+>>> calc distance
 
 arg = x1 - x2 * arg;
 temp = y1 - y2 * temp;
 arg + temp;
 
-temp + arg;
+>>> sqrt
 
 loop;
   res = arg / temp + temp / 2;
@@ -22,6 +27,3 @@ loop;
 loop.end;
 
 res + temp / 2;
-
->>> OUTPUT;
-res = res;
