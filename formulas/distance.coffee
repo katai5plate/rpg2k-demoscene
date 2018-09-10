@@ -6,13 +6,13 @@ let res 0 out distance;
 
 let arg,temp,pre,pref 0;
 
->>> calc distance
+>>> calc distance;
 
 arg = x1 - x2 * arg;
 temp = y1 - y2 * temp;
 arg + temp;
 
->>> sqrt
+>>> sqrt;
 
 loop;
   res = arg / temp + temp / 2;
