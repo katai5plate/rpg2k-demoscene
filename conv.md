@@ -289,33 +289,55 @@ send
 - すべての関数CEVをconcat
 - 必要な変数の数を調べる
 - 重複変数があったら自動的に変数名を変更
-- `func.sqrt <value-name>`と書くと、自動で必要変数の宣言が追加され処理を挿入する
+- モジュール機能。例えば`func.sqrt <value-name>`と書くと、自動で必要変数の宣言が追加され処理を挿入する
 ```coffee
 func.sqrt value_a value_b;
 
 # ↓ #
 
-let sqrt_in,sqrt_res,sqrt_p,sqrt_pf,sqrt_t 0;
+let func_sqrt_in,func_sqrt_res,func_sqrt_p,func_sqrt_pf,func_sqrt_t 0;
 
 # ～～～ #
 
-sqrt_in = value_a;
+func_sqrt_in = value_a;
 
-sqrt_res,sqrt_p,sqrt_pf = 0; sqrt_t = sqrt_in;
+func_sqrt_res,func_sqrt_p,func_sqrt_pf = 0; func_sqrt_t = func_sqrt_in;
 loop;
-  sqrt_res = sqrt_in / sqrt_t + sqrt_t / 2;
-  if sqrt_res ! sqrt_p;
-    if sqrt_pf = 1;
-      sqrt_p = sqrt_res;
+  func_sqrt_res = func_sqrt_in / func_sqrt_t + func_sqrt_t / 2;
+  if func_sqrt_res ! func_sqrt_p;
+    if func_sqrt_pf = 1;
+      func_sqrt_p = func_sqrt_res;
     if.end;
-    sqrt_t = sqrt_res;
+    func_sqrt_t = func_sqrt_res;
   if.else;
     loop.break;
   if.end;
 loop.end;
-sqrt_res + sqrt_t / 2;
+func_sqrt_res + func_sqrt_t / 2;
 
-value_b = sqrt_res;
+value_b = func_sqrt_res;
+```
+```coffee
+func.for 10 100 1;
+  value_x + 5;
+func.forend;
+
+# ↓ #
+
+let func_for_i;
+
+# ～～～ #
+
+func_for_i = value_i;
+
+loop;
+  if func_for_i < 100;
+    loop.break;
+  if.end
+  
+    value_x + 5;
+    
+loop.end;
 ```
 - 宣言不要化
   - 変数の検索から始め、必要な変数を洗い出し、初期化処理を自動設定。
