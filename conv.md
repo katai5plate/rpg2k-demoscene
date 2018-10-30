@@ -317,3 +317,22 @@ sqrt_res + sqrt_t / 2;
 
 value_b = sqrt_res;
 ```
+- 宣言不要化
+  - 変数の検索から始め、必要な変数を洗い出し、初期化処理を自動設定。
+  - in/outの宣言は装飾のため必須。letの代わりにin/outを使用し、初期値を任意設定にする。
+```coffee
+in arg;
+out res 0;
+loop;
+  res = arg / temp + temp / 2;
+  if res ! pre;
+    if pref = 1;
+      pre = res;
+    if.end;
+    temp = res;
+  if.else;
+    loop.break;
+  if.end;
+loop.end;
+res + temp / 2;
+```
