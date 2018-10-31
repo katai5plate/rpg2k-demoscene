@@ -9,11 +9,11 @@ rdx = rbx - rax & rdy = rby - ray
 spx = sax & spy = say
 sdx = sbx - sax & sdy = sby - say
 
-n1 = rdx * @ & n2 = rdy * @
-sqrt(rm, n1 + n2)
+n1 = rdx * @ & n2 = rdy * @ & n3 = n1 + n2
+sqrt(rm, n3)
 
-n1 = sdx * @ & n2 = sdy * @
-sqrt(sm, n1 + n2)
+n1 = sdx * @ & n2 = sdy * @ & n3 = n1 + n2
+sqrt(sm, n3)
 
 n1 = rdx / rm & n2 = sdx / sm
 if n1 = n2
