@@ -20,7 +20,7 @@ sqrt(sm, n3)
 n1 = rdx / rm : n2 = sdx / sm
 if n1 = n2
   n1 = rdy / rm : n2 = sdy / sm
-  case n1 = n2 res 0
+  caset n1 = n2 res 0
 if.end
 
 // T1 と T2 を算出
@@ -30,8 +30,8 @@ t2 = n3 / n4
 t1 = sdx * t2 + spx - rpx / rdx
 
 // T1 と T2 の状態から衝突を調べる
-case t1 < 0 res 0
-case t2 < 0 res 0 : case t2 > 1 res 0
+caset t1 < 0 res 0
+caset t2 < 0 res 0 : caset t2 > 1 res 0
 
 // 衝突がある場合
 if res = 1
