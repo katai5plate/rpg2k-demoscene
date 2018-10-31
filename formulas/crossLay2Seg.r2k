@@ -1,37 +1,36 @@
-in(rax, ray, rbx, rby);
-in(sax, say, sbx, sby);
-out(res, x, y, p);
+in(rax, ray, rbx, rby)
+in(sax, say, sbx, sby)
+out(res, x, y, p)
 
-res = 1;
+res = 1
 
-rpx = rax; rpy = ray;
-rdx = rbx - rax; rdy = rby - ray;
-spx = sax; spy = say;
-sdx = sbx - sax; sdy = sby - say;
+rpx = rax & rpy = ray
+rdx = rbx - rax & rdy = rby - ray
+spx = sax & spy = say
+sdx = sbx - sax & sdy = sby - say
 
-n1 = rdx * @; n2 = rdy * @;
-sqrt(rm, n1 + n2);
+n1 = rdx * @ & n2 = rdy * @
+sqrt(rm, n1 + n2)
 
-n1 = sdx * @; n2 = sdy * @;
-sqrt(sm, n1 + n2);
+n1 = sdx * @ & n2 = sdy * @
+sqrt(sm, n1 + n2)
 
-n1 = rdx / rm; n2 = sdx / sm;
-if n1 = n2;
-  n1 = rdy / rm; n2 = sdy / sm;
-  case n1 = n2 res 0;
-if.end;
+n1 = rdx / rm & n2 = sdx / sm
+if n1 = n2
+  n1 = rdy / rm & n2 = sdy / sm
+  case n1 = n2 res 0
+if.end
 
-n1 = spy - rpy * rdx; n2 = rpx - spx * rdy; n3 = n1 + n2;
-n1 = sdx * rdy; n2 = sdy * rdx; n4 = n1 - n2;
-t2 = n3 / n4;
-t1 = sdx * t2 + spx - rpx / rdx;
+n1 = spy - rpy * rdx & n2 = rpx - spx * rdy & n3 = n1 + n2
+n1 = sdx * rdy & n2 = sdy * rdx & n4 = n1 - n2
+t2 = n3 / n4
+t1 = sdx * t2 + spx - rpx / rdx
 
-case t1 < 0 res 0;
-case t2 < 0 res 0;
-case t2 > 1 res 0;
+case t1 < 0 res 0
+case t2 < 0 res 0 & case t2 > 1 res 0
 
-if res = 1;
-  x = rdx * t1 + rpx;
-  y = rdy * t1 + rpy;
-  p = t1;
-if.end;
+if res = 1
+  x = rdx * t1 + rpx
+  y = rdy * t1 + rpy
+  p = t1
+if.end
