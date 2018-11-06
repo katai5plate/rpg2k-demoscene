@@ -6,9 +6,14 @@
   "author": "katai5plate <katai5plate.sub@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "p5": "gulp -f",
     "build": "node compiler/build"
   },
   "dependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
     "path": "^0.12.7"
   }
 }
