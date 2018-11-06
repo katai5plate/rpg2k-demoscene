@@ -11,6 +11,14 @@
 - [表現したいもの](wanna.md)
 - [バグ](bugs.md)
 
+# Processing Mockの動かし方
+- npm i -g gulp-cli
+- mock.pde を使う場合
+```
+yarn install
+yarn p5 -- mock
+```
+
 # コンパイラーの使い方
 0. PCに以下をインストール
 - [Node.js](https://nodejs.org/ja/)
