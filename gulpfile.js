@@ -28,5 +28,5 @@ gulp.task('p2build', () => {
 });
 
 gulp.task('default', ['p2build', 'bsync'], () => {
-    gulp.watch(`${baseDir}/*.pde`, ['p2build', 'reload']);
+    gulp.watch(`${baseDir}/**/*.pde`, ['p2build', 'reload']);
 });
