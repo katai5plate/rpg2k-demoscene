@@ -6,7 +6,7 @@
   "author": "katai5plate <katai5plate.sub@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "p5": "gulp -f",
+    "p5": "gulp p5 -f",
     "build": "node compiler/build"
   },
   "dependencies": {

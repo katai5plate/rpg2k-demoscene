@@ -1,32 +1,33 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
-const baseDir = 'processingMocks';
-const fname = (process.argv[2] === '-f' && process.argv[3]) || '_default';
+const fname = (process.argv[3] === '-f' && process.argv[4]) || '_default';
 const replace = require('gulp-replace');
 const rename = require('gulp-rename');
 
-gulp.task('bsync', () => {
-    browserSync.init({
-        server: {
-            baseDir,
-            index: "index.html"
-        }
-    });
-});
+const processingDir = 'processingMocks';
 
 gulp.task('reload', () => {
     browserSync.reload();
 });
 
-gulp.task('p2build', () => {
-    gulp.src(`${baseDir}/_default.html`)
+gulp.task('p5bsync', () => {
+    browserSync.init({
+        server: {
+            baseDir: processingDir,
+            index: "index.html"
+        }
+    });
+});
+
+gulp.task('p5build', () => {
+    gulp.src(`${processingDir}/_default.html`)
         .pipe(replace('__PDE__', fname))
         .pipe(rename({
             basename: 'index'
         }))
-        .pipe(gulp.dest(`${baseDir}`))
+        .pipe(gulp.dest(`processingMocks`))
 });
 
-gulp.task('default', ['p2build', 'bsync'], () => {
-    gulp.watch(`${baseDir}/**/*.pde`, ['p2build', 'reload']);
+gulp.task('p5', ['p5build', 'p5bsync'], () => {
+    gulp.watch(`processingMocks/**/*.pde`, ['p5build', 'reload']);
 });
