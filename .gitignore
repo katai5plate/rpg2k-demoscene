@@ -64,4 +64,4 @@ dist/*.hsp
 hsptmp
 obj
 
-_index.html
+index.html
